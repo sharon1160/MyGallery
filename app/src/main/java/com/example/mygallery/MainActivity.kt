@@ -5,33 +5,23 @@ import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.camera.view.LifecycleCameraController
 import androidx.core.content.ContextCompat
 import com.example.mygallery.databinding.ActivityMainBinding
 
 import android.Manifest
 import android.content.ContentValues
 import android.provider.MediaStore
-import android.provider.MediaStore.Audio.Media
 import androidx.camera.core.ImageCapture
-import androidx.core.app.ActivityCompat
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
 import android.widget.Toast
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.core.Preview
 import androidx.camera.core.CameraSelector
 import android.util.Log
-import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageCaptureException
-import androidx.camera.core.ImageProxy
 import androidx.concurrent.futures.await
-import androidx.core.content.PermissionChecker
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
-import java.nio.ByteBuffer
 import java.text.SimpleDateFormat
 import java.util.Locale
 
