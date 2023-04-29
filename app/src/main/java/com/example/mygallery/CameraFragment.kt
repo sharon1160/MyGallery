@@ -22,6 +22,7 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.concurrent.futures.await
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.Navigation
 import com.example.mygallery.databinding.FragmentCameraBinding
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
@@ -51,6 +52,9 @@ class CameraFragment : Fragment() {
         }
 
         binding.imageCaptureButton.setOnClickListener { takePhoto() }
+        binding.openGalleryButton.setOnClickListener { view: View ->
+            Navigation.findNavController(view).navigate(R.id.action_cameraFragment3_to_galleryFragment)
+        }
 
         return binding.root
     }
