@@ -2,15 +2,12 @@ package com.example.mygallery
 
 import android.os.Bundle
 import android.os.Environment
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.GridLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.mygallery.databinding.FragmentGalleryBinding
-import com.google.android.material.tabs.TabLayout.TabGravity
 import java.io.File
 
 class GalleryFragment : Fragment() {
@@ -24,20 +21,12 @@ class GalleryFragment : Fragment() {
     ): View? {
         _binding = FragmentGalleryBinding.inflate(inflater, container, false)
 
-        val images: Array<String> = arrayOf(
-            "https://picsum.photos/id/1060/536/354?blur=2",
-            "https://picsum.photos/id/1060/536/354?blur=2",
-            "https://picsum.photos/id/1060/536/354?blur=2",
-            "https://picsum.photos/id/1060/536/354?blur=2",
-            "https://picsum.photos/id/1060/536/354?blur=2",
-            "https://picsum.photos/id/1060/536/354?blur=2",
-            "https://picsum.photos/id/1060/536/354?blur=2",
-            "https://picsum.photos/id/1060/536/354?blur=2",
-            "https://picsum.photos/id/1060/536/354?blur=2",
-            "https://picsum.photos/id/1060/536/354?blur=2"
-        )
+        val folder = Environment.getExternalStorageDirectory()
+        val imagesList =
+            File(folder, "Pictures/CameraX-image/").listFiles().map { it.path }.toTypedArray()
+                .reversedArray()
 
-        val adapter = GridItemAdapter(images)
+        val adapter = GridItemAdapter(imagesList)
 
         val gridLayout = GridLayoutManager(requireContext(), 2).also {
             it.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
@@ -49,7 +38,6 @@ class GalleryFragment : Fragment() {
                 }
             }
         }
-
         binding.gridItems.layoutManager = gridLayout
         binding.gridItems.adapter = adapter
         return binding.root
