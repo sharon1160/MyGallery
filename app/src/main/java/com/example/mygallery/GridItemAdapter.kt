@@ -1,5 +1,6 @@
 package com.example.mygallery
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +20,7 @@ class GridItemAdapter(val images: Array<String>): RecyclerView.Adapter<GridItemA
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        Picasso.get().load(images[position]).into(holder.image)
+        holder.image.setImageURI(Uri.parse(images[position]))
     }
 
     override fun getItemCount(): Int {
