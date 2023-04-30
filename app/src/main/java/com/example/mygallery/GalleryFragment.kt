@@ -23,10 +23,14 @@ class GalleryFragment : Fragment() {
 
         val folder = Environment.getExternalStorageDirectory()
         val imagesList =
-            File(folder, "Pictures/CameraX-image/").listFiles().map { it.path }.toTypedArray()
-                .reversedArray()
+            File(folder, "Pictures/CameraX-image/").listFiles()?.map { it.path }?.toTypedArray()
+                ?.reversedArray()
 
-        val adapter = GridItemAdapter(imagesList)
+        val adapter = if (imagesList != null) {
+            GridItemAdapter(imagesList)
+        } else {
+            GridItemAdapter(arrayOf())
+        }
 
         val gridLayout = GridLayoutManager(requireContext(), 2).also {
             it.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
