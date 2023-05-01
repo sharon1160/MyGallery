@@ -6,9 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mygallery.GalleryFragment.Companion.selectedIdsList
 import com.example.mygallery.GalleryFragment.Companion.selectedImagesList
-import kotlinx.coroutines.selects.select
 
 class GridItemAdapter(val images: Array<String>): RecyclerView.Adapter<GridItemAdapter.ViewHolder> () {
 
@@ -26,20 +24,18 @@ class GridItemAdapter(val images: Array<String>): RecyclerView.Adapter<GridItemA
 
         holder.image.setImageURI(Uri.parse(images[position]))
 
-        if(!selectedIdsList.contains(position)){
+        if(!selectedImagesList.contains(images[position])){
             holder.selected.visibility = View.GONE
         } else {
             holder.selected.visibility = View.VISIBLE
         }
 
         holder.image.setOnClickListener {
-            if (!selectedIdsList.contains(position)) {
-                selectedIdsList.add(position)
+            if (!selectedImagesList.contains(images[position])) {
                 selectedImagesList.add(images[position])
                 holder.selected.visibility = View.VISIBLE
             } else {
                 holder.selected.visibility = View.GONE
-                selectedIdsList.remove(position)
                 selectedImagesList.remove(images[position])
             }
         }
