@@ -17,5 +17,14 @@
         android:id="@+id/galleryFragment"
         android:name="com.example.mygallery.GalleryFragment"
         android:label="fragment_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_gallery" >
+        <action
+            android:id="@+id/action_galleryFragment_to_sliderFragment"
+            app:destination="@id/sliderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sliderFragment"
+        android:name="com.example.mygallery.SliderFragment"
+        android:label="fragment_slider"
+        tools:layout="@layout/fragment_slider" />
 </navigation>
