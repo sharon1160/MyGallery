@@ -26,7 +26,7 @@
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:layout_marginTop="4dp"
-        android:background="#6F000000"
+        android:background="#99000000"
         app:layout_constraintEnd_toEndOf="@+id/photo"
         app:layout_constraintStart_toStartOf="@+id/photo"
         app:layout_constraintTop_toTopOf="parent">
