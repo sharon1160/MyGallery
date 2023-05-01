@@ -15,6 +15,11 @@ class GalleryFragment : Fragment() {
     private var _binding: FragmentGalleryBinding? = null
     private val binding get() = _binding!!
 
+    companion object{
+        var selectedIdsList = mutableListOf<Int>()
+        var selectedImagesList = mutableListOf<String>()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

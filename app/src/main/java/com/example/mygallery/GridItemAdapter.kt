@@ -6,11 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mygallery.GalleryFragment.Companion.selectedIdsList
+import com.example.mygallery.GalleryFragment.Companion.selectedImagesList
+import kotlinx.coroutines.selects.select
 
 class GridItemAdapter(val images: Array<String>): RecyclerView.Adapter<GridItemAdapter.ViewHolder> () {
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val image :  ImageView = itemView.findViewById(R.id.photo)
+        val selected: View = itemView.findViewById(R.id.selectedView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -19,7 +23,26 @@ class GridItemAdapter(val images: Array<String>): RecyclerView.Adapter<GridItemA
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
         holder.image.setImageURI(Uri.parse(images[position]))
+
+        if(!selectedIdsList.contains(position)){
+            holder.selected.visibility = View.GONE
+        } else {
+            holder.selected.visibility = View.VISIBLE
+        }
+
+        holder.image.setOnClickListener {
+            if (!selectedIdsList.contains(position)) {
+                selectedIdsList.add(position)
+                selectedImagesList.add(images[position])
+                holder.selected.visibility = View.VISIBLE
+            } else {
+                holder.selected.visibility = View.GONE
+                selectedIdsList.remove(position)
+                selectedImagesList.remove(images[position])
+            }
+        }
     }
 
     override fun getItemCount(): Int {
