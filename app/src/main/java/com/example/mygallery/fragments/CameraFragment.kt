@@ -1,4 +1,4 @@
-package com.example.mygallery
+package com.example.mygallery.fragments
 
 import android.Manifest
 import android.content.ContentValues
@@ -23,6 +23,7 @@ import androidx.concurrent.futures.await
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
+import com.example.mygallery.R
 import com.example.mygallery.databinding.FragmentCameraBinding
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat

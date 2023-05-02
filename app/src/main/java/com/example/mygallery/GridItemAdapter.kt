@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mygallery.GalleryFragment.Companion.selectedImagesList
+import com.example.mygallery.fragments.GalleryFragment.Companion.selectedImagesList
 
 class GridItemAdapter(val images: Array<String>): RecyclerView.Adapter<GridItemAdapter.ViewHolder> () {
 
