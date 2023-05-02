@@ -21,6 +21,5 @@
         android:contentDescription="@string/see_photos"
         android:focusable="true"
         android:src="@drawable/see_icon"
-        app:backgroundTint="#673AB7"
         app:tint="@color/white" />
 </FrameLayout>
