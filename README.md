@@ -7,7 +7,7 @@ A gallery app to take, view and select photos.
 - We clone the repository
 
 ```bash
-    git clone https://github.com/sharon1160/MyGallery.git
+git clone https://github.com/sharon1160/MyGallery.git
 ```
 
 - Open the project and run.
